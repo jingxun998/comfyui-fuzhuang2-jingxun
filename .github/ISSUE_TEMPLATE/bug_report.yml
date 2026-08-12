@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible functional problem
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not paste API keys, private images, authorization headers, or full credential-bearing logs. Security vulnerabilities belong in GitHub Security Advisories."
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version or commit
+      placeholder: v0.1.0 or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: node
+    attributes:
+      label: Affected node
+      options:
+        - Gemini 模特生成器
+        - Gemini 虚拟试衣
+        - Gemini 姿势变换器
+        - Gemini 服装处理器
+        - Gemini 高级调色盘
+        - Gemini 造型助手
+        - Gemini 场合造型师
+        - Installation or configuration
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use non-sensitive sample data where possible.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and redacted error
+    validations:
+      required: true

@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Build deterministic release archive
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          python scripts/build_release.py --version "$VERSION"
+      - name: Create GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/comfyui-fuzhuang2-jingxun-v${VERSION}.zip" \
+            "dist/comfyui-fuzhuang2-jingxun-v${VERSION}.zip.sha256" \
+            --verify-tag \
+            --title "Fuzhuang2 Jingxun ${GITHUB_REF_NAME}" \
+            --generate-notes

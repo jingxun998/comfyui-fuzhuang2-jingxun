@@ -1,0 +1,27 @@
+# Local credentials and configuration
+gemini_config.json
+gemini_api_key.txt
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Builds and releases
+build/
+dist/
+*.egg-info/
+*.zip
+
+# Editors and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

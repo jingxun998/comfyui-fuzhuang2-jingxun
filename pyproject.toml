@@ -1,0 +1,24 @@
+[project]
+name = "fuzhuang2-jingxun"
+version = "0.1.0"
+description = "Gemini-powered fashion image workflow nodes for ComfyUI"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "jingxun998" }]
+keywords = ["comfyui", "gemini", "fashion", "virtual-try-on", "e-commerce"]
+dependencies = [
+  "requests>=2.32.4,<3",
+  "Pillow>=10.4.0,<13",
+  "numpy>=1.26.0,<3"
+]
+
+[project.urls]
+Repository = "https://github.com/jingxun998/comfyui-fuzhuang2-jingxun"
+Issues = "https://github.com/jingxun998/comfyui-fuzhuang2-jingxun/issues"
+Security = "https://github.com/jingxun998/comfyui-fuzhuang2-jingxun/security"
+
+[tool.comfy]
+PublisherId = "jingxun998"
+DisplayName = "Fuzhuang2 Jingxun · Gemini 服装工作流"
+Icon = ""
